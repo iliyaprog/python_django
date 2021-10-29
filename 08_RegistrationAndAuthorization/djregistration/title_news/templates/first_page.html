@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+    <h2>Добро пожаловать на сайт {{ request.user.first_name }}</h2>
+    <a href="{% url 'logout' %}">Выйти</a>
+{% else %}
+    <h2>Вы не авторизированны на нашем сайте</h2>
+    <a href="{% url 'login' %}">Войти</a>
+{% endif %}
+<h1>Новостной сайт</h1>
+<p>
+<a href="/app_news">Новости</a>
+</p>
+{% if request.user.is_authenticated %}
+    <p>Вы зарегистрированный пользователь</p>
+{% else %}
+    <a href="{% url 'register' %}">Зарегистрироваться</a>
+{% endif %}
+
+</body>
+</html>

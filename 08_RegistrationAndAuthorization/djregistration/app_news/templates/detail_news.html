@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ news_model.title }}</title>
+</head>
+<body>
+<h1>{{ news_model.title }}</h1>
+<p>{{ news_model.content }}</p>
+
+<form method = "get" action="/app_news/upgreate_news/{{ news_model.id }}">
+        <button type="submit">Редактировать новость</button></form>
+
+{% if all_comments is None %}
+    <p>Комментариев пока нет</p>
+{% else %}
+    {% for comment in all_comments %}
+        <p></p>
+        <p>{{ comment.author }}: {{ comment.text }}</p>
+    {% endfor %}
+{% endif %}
+<form method = "post" action="/app_news/detail_news/{{ news_model.id }}">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+        <button type="submit">Добавить комментарий</button></form>
+</body>
+</html>

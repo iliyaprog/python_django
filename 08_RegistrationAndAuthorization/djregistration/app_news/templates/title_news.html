@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>News Telegram</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+    <p>Приветствуем {{ request.user.first_name }}</p>
+{% else %}
+    <h2>Вы не авторизированны на нашем сайте</h2>
+    <a href="{% url 'login' %}">Войти</a>
+{% endif %}
+<h1>Список новостей</h1>
+
+{% if all_news_list %}
+
+<ul>
+    {% for news in all_news_list %}
+    {% if news.flag_activate is True %}
+    <li>
+        <p></p>
+        <a href="detail_news/{{ news.id }}">{{news.title}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% else %}
+ <p>Новостей нет</p>
+{% endif %}
+
+<form method = "get" action="/app_news/create_news">
+    <button type="submit">Создать новость</button>
+</form>
+
+</form>
+
+</body>
+</html>
