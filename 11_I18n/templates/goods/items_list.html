@@ -1,0 +1,41 @@
+{% load i18n %}
+
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html>
+{% if request.user.is_authenticated %}
+<h3>{% trans 'Welcome' %} <a href="/app_users/user_account">{{ request.user.first_name }}</a> </h3>
+    <a href="{% url 'logout' %}">{% trans 'Out' %}</a>
+{% else %}
+    <h3>{% trans 'You are not logged in to our website.' %}</h3>
+    <a href="{% url 'login' %}">{% trans 'Enter' %} |</a>
+    <a href="{% url 'restore_password' %}">{% trans "I don't remember the password" %} |</a>
+    <a href="{% url 'registration' %}">{% trans 'Register' %}</a>
+{% endif %}
+<h1>{% trans 'List of products' %}</h1>
+
+{% if items_list %}
+    <table border="1">
+        <tbody>
+        <tr>
+            <td>{% trans 'article' %}</td>
+            <td>{% trans 'price' %}</td>
+        </tr>
+        {% for item in items_list %}
+            <tr>
+                <td>{{ item.code }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% else %}
+    <p>{% trans 'The product is missing' %}</p>
+{% endif %}
+<form method="get" action="update_prices">
+    <button type="submit">{% trans 'Update the product' %}</button>
+</form>
+</html>

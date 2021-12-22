@@ -1,0 +1,19 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+
+<h3>{% trans "Welcome! Select a language" %}</h3>
+<p>
+    <a href="/app_goods/items">{% trans "Go to the store" %}</a>
+</p>
+</form>
+</body>
+</html>

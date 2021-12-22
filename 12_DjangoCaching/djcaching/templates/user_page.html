@@ -1,0 +1,50 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if avatar is None %}
+        <img src="/media/anonim.png/" alt="Anonim" width="200">
+    {% else %}
+        <img src="/media/{{ avatar.avatar }}" alt="user" width="200">
+    {% endif %}
+    <form method="get" action="/app_users/upload_avatar">
+        <button type="submit">{% trans 'change avatar' %}</button>
+    </form>
+
+    <p>{% trans 'Name: ' %} {{ profile.first_name }}</p>
+    <p>{% trans 'Surname: ' %}{{ profile.last_name }}</p>
+    <p>'E-mail: {{ profile.email }}</p>
+    <p>{% trans 'Bonus: ' %}{{ bonus.bonus }}</p>
+
+    <form method="get" action="/app_users/redactor_user">
+        <button type="submit">{% trans 'edit profile' %}</button>
+    </form>
+
+    <p>{% trans 'Shopping list' %}</p>
+    {% if products is None %}
+        <p>{% trans 'there are no products' %}</p>
+    {% else %}
+        {% load cache %}
+        {% cache 500 shopping_list %}
+            {% block shopping_list %}
+                {% for product in products %}
+                    <p>{{ product.title }} - {{ product.price }}$</p>
+                {% endfor %}
+            {% endblock %}
+        {% endcache %}
+    {% endif %}
+    {% if offers %}
+        {% for offer in offers %}
+            <p>{{ offer.description }}
+                <img src="/media/{{ offer.product.photo }}" alt="product" width="50"></p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

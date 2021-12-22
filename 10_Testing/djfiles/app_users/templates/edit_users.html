@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование профиля</title>
+</head>
+<body>
+    <h1>Редактирование профиля</h1>
+    <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+</html>

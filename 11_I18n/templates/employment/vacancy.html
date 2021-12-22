@@ -1,0 +1,22 @@
+{% load i18n %}
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html>
+{% extends "header.html" %}
+    <h1>{% trans "Job openings" %}</h1>
+
+    {% if vacancy_list %}
+    <ul>
+
+      {% for vacancy in vacancy_list %}
+      <li>
+        <a href="#">{{ vacancy.title }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>{% trans "No vacancies" %}</p>
+    {% endif %}
+</html>

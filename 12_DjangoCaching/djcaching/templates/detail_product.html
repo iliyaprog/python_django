@@ -1,0 +1,23 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Detail' %}</title>
+</head>
+<body>
+        <img src="/media/{{ product.photo }}" alt={{ product.title }} width="200">
+        <p>{{ product.title }}</p>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}$</p>
+
+        <form method="get" action="/app_products/buy_product/{{ product.id }}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% trans 'Buy' %}</button>
+        </form>
+</body>
+</html>

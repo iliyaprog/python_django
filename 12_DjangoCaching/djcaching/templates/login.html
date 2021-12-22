@@ -1,0 +1,19 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Login' %}</title>
+</head>
+<body>
+    <h1>{% trans 'Authentication' %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% trans 'Sign on' %}</button>
+    </form>
+</body>
+</html>

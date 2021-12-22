@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотр записи</title>
+</head>
+<body>
+<p>Дата: {{ record_model.created_ap }}</p>
+<p>Автор: {{ record_model.user }}</p>
+<p>Текст: {{ record_model.text }}</p>
+
+{% if photo_list is None %}
+    <p>Фото нет</p>
+{% else %}
+{% for photo in photo_list %}
+    <img src="/media/{{ photo.file }}" style="width:400px;">
+{% endfor %}
+{% endif %}
+</body>
+</html>

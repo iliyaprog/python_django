@@ -1,0 +1,20 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Upload photo' %}</title>
+</head>
+<body>
+<h1>{% trans 'Upload photo' %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% trans 'Upload photo' %}</button>
+    </form>
+
+</body>
+</html>

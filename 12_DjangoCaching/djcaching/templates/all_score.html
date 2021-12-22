@@ -1,0 +1,12 @@
+Shops
+
+{% load cache %}
+{% cache 500 footer %}
+    {% block score_list %}
+        {% for score in scores.all %}
+        <li>
+            <p>{{ score.score }}</p>
+        </li>
+        {% endfor %}
+    {% endblock %}
+{% endcache %}

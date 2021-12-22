@@ -1,0 +1,23 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Main page' %}</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+    {% trans 'Welcome to our website'%}, {{ request.user.first_name }}
+
+    <p>{% trans "Date of birth" %}: {{ request.user.profile.date_of_birth }}</p>
+    <p>Город: {{ request.user.profile.city }}</p>
+{% else %}
+    {% trans 'You are not logged in to our website.' %}
+    <a href="{% url 'login' %}">{% trans 'Enter' %}</a>
+{% endif %}
+<h2>{% trans 'Me - Main page' %}</h2>
+</body>
+</html>

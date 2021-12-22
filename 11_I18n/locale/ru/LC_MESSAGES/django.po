@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-24 12:23+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app_goods\apps.py:7 .\app_goods\models.py:10
+msgid "goods"
+msgstr "товары"
+
+#: .\app_goods\models.py:6
+msgid "code"
+msgstr "Артикул"
+
+#: .\app_goods\models.py:7 .\templates\goods\items_list.html:19
+msgid "price"
+msgstr "Цена"
+
+#: .\app_goods\models.py:11
+msgid "good"
+msgstr "товары"
+
+#: .\app_goods\views.py:28
+msgid "Prices have been successfully updated"
+msgstr "Цены были успешно обновлены"
+
+#: .\app_pages\views.py:12
+#, python-format
+msgid "Hello there! Today is %(date)s %(time)s"
+msgstr "Привет! Сегодня %(date)s %(time)s"
+
+#: .\app_users\forms.py:16
+msgid "Name"
+msgstr "Имя"
+
+#: .\app_users\forms.py:17
+msgid "Last_name"
+msgstr "Фамилия"
+
+#: .\app_users\forms.py:18 .\templates\main.html:13
+msgid "Date of birth"
+msgstr "Дата рождения"
+
+#: .\app_users\forms.py:20
+msgid "City"
+msgstr "Город"
+
+#: .\app_users\forms.py:21
+msgid "Your email"
+msgstr "Ваша эл.почта"
+
+#: .\app_users\views.py:42
+msgid "Mistake! The user account is inactive."
+msgstr "Ошибка! Учетная запись неактивна."
+
+#: .\app_users\views.py:44
+msgid "Mistake! Check the spelling of the username and password."
+msgstr "Ошибка! Проверьте логин и пароль."
+
+#: .\app_users\views.py:56
+msgid "You have successfully logged out from under your account"
+msgstr "Вы успешно вышли мз под своей учетной записи"
+
+#: .\app_users\views.py:144
+msgid "Password recovery"
+msgstr "восстановление пароля"
+
+#: .\app_users\views.py:145
+#, python-brace-format
+msgid "New password: {new_password}"
+msgstr "Новый пароль: {new_password}"
+
+#: .\app_users\views.py:148
+msgid "An email with a new password has been successfully sent"
+msgstr "Новый пароль был отправлен на вашу почту"
+
+#: .\templates\employment\vacancy.html:3
+msgid "Job openings"
+msgstr "Вакансии"
+
+#: .\templates\employment\vacancy.html:16
+msgid "No vacancies"
+msgstr "Нет вакансий"
+
+#: .\templates\goods\items_list.html:4 .\templates\welcome.html:8
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: .\templates\goods\items_list.html:5
+msgid "Out"
+msgstr "Выход"
+
+#: .\templates\goods\items_list.html:7 .\templates\main.html:16
+msgid "You are not logged in to our website."
+msgstr "Вы не авторизированны на нашем сайте"
+
+#: .\templates\goods\items_list.html:8 .\templates\main.html:17
+msgid "Enter"
+msgstr "Войти"
+
+#: .\templates\goods\items_list.html:9
+msgid "I don't remember the password"
+msgstr "Я не помню пароль"
+
+#: .\templates\goods\items_list.html:10
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: .\templates\goods\items_list.html:12
+msgid "List of products"
+msgstr "Список товаров"
+
+#: .\templates\goods\items_list.html:18
+msgid "article"
+msgstr "Артикль"
+
+#: .\templates\goods\items_list.html:32
+msgid "The product is missing"
+msgstr "Товаров нет"
+
+#: .\templates\goods\items_list.html:35
+msgid "Update the product"
+msgstr "Обновить товар"
+
+#: .\templates\goods\upload_price_file.html:6
+msgid "Downloading a file with prices"
+msgstr "Загрузить файл с ценами"
+
+#: .\templates\goods\upload_price_file.html:14
+#: .\templates\media\upload_file.html:6 .\templates\media\upload_file.html:14
+msgid "Download file"
+msgstr "Загрузить файл"
+
+#: .\templates\greetings.html:6
+msgid "What time is it?"
+msgstr "Который час?"
+
+#: .\templates\header_page.html:10
+msgid "Welcome! Select a language"
+msgstr "Добро пожаловать! Выберете язык"
+
+#: .\templates\header_page.html:26
+msgid "Go to the store"
+msgstr "Перейти в магазин"
+
+#: .\templates\main.html:6 .\templates\welcome.html:5
+msgid "Main page"
+msgstr "Главная страница"
+
+#: .\templates\main.html:11
+#, fuzzy
+#| msgid "Welcome to our page"
+msgid "Welcome to our website"
+msgstr "Добро пожаловать на наш cfqn"
+
+#: .\templates\main.html:19
+msgid "Me - Main page"
+msgstr "Я - Главная страница"
+
+#: .\templates\media\file_form_upload.html:6
+msgid "Dowload file"
+msgstr "Загрузить файл"
+
+#: .\templates\media\file_form_upload.html:14
+msgid "Download"
+msgstr "Загрузить"
+
+#: .\templates\media\resize_image.html:6
+#: .\templates\media\resize_image.html:14
+msgid "Image reduction"
+msgstr "Уменьшить изображение"
+
+#: .\templates\media\upload_files.html:6
+#: .\templates\media\upload_files.html:14
+msgid "Dowload files"
+msgstr "Загрузить файлы"
+
+#: .\templates\translation_example.html:6
+msgid "Our translation page title."
+msgstr "Наша переведенная страница"
+
+#: .\templates\translation_example.html:9
+msgid "Translated text."
+msgstr "Переведенный текст"
+
+#: .\templates\translation_example.html:23
+msgid "Welcome to our page"
+msgstr "Добро пожаловать на нашу страницу"

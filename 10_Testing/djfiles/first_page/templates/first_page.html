@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Супер блог</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+<h3>Добро пожаловать <a href="/app_users/edit_user">{{ request.user.first_name }}</a> </h3>
+    <a href="{% url 'logout' %}">Выйти</a>
+{% else %}
+    <h3>Вы не авторизированны на нашем сайте</h3>
+    <a href="{% url 'login' %}">Войти |</a>
+    <a href="{% url 'recovery' %}">Я не помню пароль</a>
+{% endif %}
+<h2>Что нового???</h2>
+
+{% if total_list %}
+
+    {% for record in total_list %}
+    <p>
+        {{ record.created_ap }} {{ record.user }} {{ record.text|slice:":99" }}...
+        <form method="get" action="/detail_record/{{ record.id }}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Просмотреть</button>
+        </form>
+    </p>
+    {% endfor %}
+{% else %}
+ <p>Новостей нет</p>
+{% endif %}
+
+
+{% if request.user.is_authenticated %}
+    <form method="get" action="/app_media/upload_files">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить запись</button>
+    </form>
+    <form action="/app_media/upload_records">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить несколько записей</button>
+    </form>
+{% else %}
+    <a href="{% url 'register' %}">Зарегистрироваться</a>
+{% endif %}
+</body>
+</html>

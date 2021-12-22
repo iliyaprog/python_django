@@ -1,0 +1,22 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Edit profile' %}</title>
+</head>
+<body>
+    <h1>{% trans 'Edit profile' %}</h1>
+    <p>{% trans 'Name: ' %} {{ request.user.first_name }}</p>
+    <p>{% trans 'Surname: ' %}{{ request.user.last_name }}</p>
+    <p>'E-mail: {{ request.user.email }}</p>
+    <form method="post" action="/app_users/redactor_user">
+        {% csrf_token %}
+        {{ form_edit.as_p }}
+        <button type="submit">{% trans 'Save' %}</button>
+    </form>
+</body>
+</html>

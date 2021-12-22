@@ -1,0 +1,21 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Buy product' %}</title>
+</head>
+<body>
+    {{ product.title }} - {{ product.price }}$
+    <p>Тут типо вводится номер карты</p>
+    <form method="post" action="/app_products/buy_product/{{ product.id }}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% trans 'Buy' %}</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <title>{% trans 'Download file' %}</title>
+</head>
+<body>
+<h2></h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">{% trans 'Download file' %}</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "What time is it?" %}</title>
+</head>
+<body>
+
+    <h1>{{ greetings_message }}</h1>
+
+</body>
+</html>

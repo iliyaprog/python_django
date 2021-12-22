@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ author }}</title>
+</head>
+<body>
+    <p>Имя: {{ author.name }}</p>
+    <p>Фамилия: {{ author.surname }}</p>
+    <p>Год рождения: {{ author.date_of_birth }}</p>
+
+    <p>Книги автора: </p>
+    {% if all_books %}
+        {% for book in all_books %}
+            <p><a href="/detail_book/{{ book.id }}">{{ book.name }}</a></p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

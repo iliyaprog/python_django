@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ book.name }}</title>
+</head>
+<body>
+    <p>Название: {{ book.name }}</p>
+    <p>Автор: <a href="/detail_author/{{ book.author.id }}"> {{ book.author }}</a></p>
+    <p>Год выпуска: {{ book.date_of_release }}</p>
+    <p>Международный номер: {{ book.isbn }}</p>
+    <p>Количество страниц: {{ book.count_list }}</p>
+
+</body>
+</html>

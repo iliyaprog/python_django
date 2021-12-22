@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+
+{% for book in page_obj %}
+    <p>
+        <a href="/detail_book/{{ book.id }}">{{ book.name }}</a> <br>
+        <a href="/detail_author/{{ book.author.id }}">{{ book.author }}</a><br>
+        {{ book.date_of_release }} год<br>
+    </p>
+{% endfor %}
+
+{% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+{% endif %}
+
+Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+
+{% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">next</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+{% endif %}
+</body>
+</html>

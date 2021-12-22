@@ -1,0 +1,17 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'List score' %}</title>
+</head>
+<body>
+    <p>{% trans 'All score' %}</p>
+    {% for i_score in tuple_score %}
+        <p>{{ i_score }}</p>
+    {% endfor %}
+</body>
+</html>

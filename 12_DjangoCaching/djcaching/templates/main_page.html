@@ -1,0 +1,44 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% block choice_language %}
+{% include 'header.html' %}
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Score" %}</title>
+</head>
+<p>
+
+{% if request.user.is_authenticated %}
+    <h3>{% trans 'Welcome' %} <a href="/app_users/user_page">{{ request.user.first_name }}</a> </h3>
+    {{ avatars }}
+    <a href="{% url 'logout' %}">{% trans 'Out' %}</a>
+{% else %}
+    <h3>{% trans 'You are not authorized on our website' %}</h3>
+    <a href="{% url 'login' %}">{% trans 'Sign on' %} |</a>
+    <a href="{% url 'register' %}">{% trans 'Register' %}</a>
+{#    <a href="{% url 'recovery' %}">{% trans 'I don't remember the password' %}</a>#}
+{% endif %}
+
+{% if products %}
+    {% for product in products %}
+        <p>{{ product.title }} - {{ product.price }}$</p>
+        <img src="/media/{{ product.photo }}" alt={{ product.title }} width="200">
+        <form method="get" action="/app_products/detail_product/{{ product.id }}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% trans 'View' %}</button>
+        </form>
+        <p></p>
+    {% endfor %}
+{% else %}
+ <p>{% trans 'Products are missing' %}</p>
+{% endif %}
+
+<p>
+<a href="/app_score/all_score">{% trans 'All Score' %}</a>
+</p>
+
+</body>
+</html>
